@@ -1,34 +1,43 @@
+:root {
+  --background-color: #0a0a23;
+  --text-color: #fff;
+  --red: #c70d0d;
+  --orange: #feac32;
+  --light-orange: #fecc4c;
+  --dark-orange: #ffac33;
+}
+
 body {
-  background-color: #0a0a23;
+  background-color: var(--background-color);
 }
 
 #text {
-  background-color: #0a0a23;
-  color: #fff;
+  background-color: var(--background-color);
+  color: var(--text-color);
   padding: 10px;
 }
 
 #game {
   max-width: 500px;
   max-height: 400px;
-  background-color: #fff;
-  color: #fff;
+  background-color: var(--text-color);
+  color: var(--text-color);
   margin: 30px auto 0px;
   padding: 10px;
 }
 
 #controls, #stats {
-  border: 1px solid #0a0a23;
+  border: 1px solid var(--background-color);
   padding: 5px;
-  color: #0a0a23;
+  color: var(--background-color);
 }
 
 #monsterStats {
   display: none;
-  border: 1px solid #0a0a23;
+  border: 1px solid var(--background-color);
   padding: 5px;
-  color: #fff;
-  background-color: #c70d0d;
+  color: var(--text-color);
+  background-color: var(--red);
 }
 
 .stat {
@@ -37,8 +46,8 @@ body {
 
 button {
   cursor: pointer;
-  color: #0a0a23;
-  background-color: #feac32;
-  background-image: linear-gradient(#fecc4c, #ffac33);
-  border: 3px solid #feac32;
+  color: var(--background-color);
+  background-color: var(--orange);
+  background-image: linear-gradient(var(--light-orange), var(--dark-orange));
+  border: 3px solid var(--orange);
 }

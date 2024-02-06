@@ -124,17 +124,6 @@ button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
 
-// function update(location){
-//   monsterStats.style.display = "none";
-//   button1.innerText = location["button text"][0];
-//   button2.innerText = location["button text"][1];
-//   button3.innerText = location["button text"][2];
-//   button1.onclick = location["button functions"][0];
-//   button2.onclick = location["button functions"][1];
-//   button3.onclick = location["button functions"][2];
-//   text.innerText = location["text"];
-// }
-
 function goStore(){
   update(locations[1]);
 }
@@ -181,7 +170,6 @@ function buyWeapon() {
 }
 
 function sellWeapon(){
-  console.log(inventory);
   if(inventory.length > 1){
     gold += 15;
     goldText.innerText = gold;
@@ -219,7 +207,7 @@ function goFight() {
 
 function attack() {
   text.innerText = `The ${monsters[fighting].name} attacks.`;
-  text.innerText = ` You attack it with your  ${weapons[currentWeapon].name}.`;
+  text.innerText += ` You attack it with your  ${weapons[currentWeapon].name}.`;
   health -= getMonsterAttackValue(monsters[fighting].level);
   if(isMonsterHit()){
     monsterHealth -= weapons[currentWeapon].power + Math.floor(Math.random() * xp) + 1
@@ -241,7 +229,6 @@ function attack() {
 
 function getMonsterAttackValue(level){
   const hit = (level * 5) - (Math.floor(Math.random() * xp));
-  console.log(hit);
   return hit > 0 ? hit : 0;
 }
 
@@ -299,7 +286,7 @@ function pick(guess){
     numbers.push(Math.floor(Math.random() * 11));
   }
   text.innerText = `You picked ${guess}. Here are the random numbers:\n`;
-  for(let i=0;i<10;i++){
+  for(let i=0;i<numbers.length;i++){
     text.innerText += numbers[i] + '\n';
   }
   if(numbers.includes(guess)){
@@ -310,7 +297,7 @@ function pick(guess){
     text.innerText += "Wrong! You lose 10 health!" ;
     health -= 10;
     healthText.innerText = health;
-    if(health <= 10){
+    if(health < 10){
       lose();
     }
   }
