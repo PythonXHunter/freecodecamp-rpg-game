@@ -1,3 +1,5 @@
+import { update } from './gameFunctions.js';
+
 let xp = 0;
 let health = 100;
 let gold = 50;
@@ -122,16 +124,16 @@ button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
 
-function update(location){
-  monsterStats.style.display = "none";
-  button1.innerText = location["button text"][0];
-  button2.innerText = location["button text"][1];
-  button3.innerText = location["button text"][2];
-  button1.onclick = location["button functions"][0];
-  button2.onclick = location["button functions"][1];
-  button3.onclick = location["button functions"][2];
-  text.innerText = location["text"];
-}
+// function update(location){
+//   monsterStats.style.display = "none";
+//   button1.innerText = location["button text"][0];
+//   button2.innerText = location["button text"][1];
+//   button3.innerText = location["button text"][2];
+//   button1.onclick = location["button functions"][0];
+//   button2.onclick = location["button functions"][1];
+//   button3.onclick = location["button functions"][2];
+//   text.innerText = location["text"];
+// }
 
 function goStore(){
   update(locations[1]);
@@ -209,7 +211,9 @@ function goFight() {
   update(locations[3]);
   monsterHealth = monsters[fighting].health;
   monsterStats.style.display = "block";
-  monsterHealthText.innerText = monsterHealth; 
+  if(monsterHealth >= 0){
+    monsterHealthText.innerText = monsterHealth;
+  } 
   monsterName.innerText = monsters[fighting].name;
 }
 
